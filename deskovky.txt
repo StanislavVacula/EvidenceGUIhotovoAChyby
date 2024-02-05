@@ -1,0 +1,4 @@
+Šachy;ne;2
+Pexeso;ano;2
+Poker;ne;1
+Prší;ano;2

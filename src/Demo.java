@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Demo extends JFrame{
+public class Demo extends JFrame {
     private JTextField textField1;
     private JButton predchoziButton;
     private JButton dalsiButton;
@@ -14,6 +14,7 @@ public class Demo extends JFrame{
     ButtonGroup group = new ButtonGroup();
     private int indexAktualniDeskovky = 0;
     EvidenceDeskovek evidenceDeskovek = new EvidenceDeskovek();
+
     public Demo() {
         initComponents();
         predchoziButton.addActionListener(e -> ubraniAkce());
@@ -21,18 +22,21 @@ public class Demo extends JFrame{
         ulozitButton.addActionListener(e -> ulozenoAkce());
     }
 
-    public void ubraniAkce(){
+    public void ubraniAkce() {
         indexAktualniDeskovky--;
         zobrazDeskovku();
     }
-    public void pridaniAkce(){
+
+    public void pridaniAkce() {
         indexAktualniDeskovky++;
         zobrazDeskovku();
     }
-    public void ulozenoAkce(){
+
+    public void ulozenoAkce() {
         JOptionPane.showMessageDialog(this, "Odpovědi byli uloženy!");
     }
-    public void initComponents(){
+
+    public void initComponents() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         group.add(oblibenost1);
         group.add(oblibenost2);
@@ -43,18 +47,18 @@ public class Demo extends JFrame{
         setTitle("Otázky");
     }
 
-    public void zobrazDeskovku(){
+    public void zobrazDeskovku() {
         Deskovka aktualniDeskovka = evidenceDeskovek.vratDeskovku(indexAktualniDeskovky);
         textField1.setText(aktualniDeskovka.getNazevDeskovky());
         koupenoCheckBox.setSelected(aktualniDeskovka.isKoupeno());
-            if (aktualniDeskovka.getOblibenost() == 1){
+            if (aktualniDeskovka.getOblibenost() == 1) {
                 oblibenost1.setSelected(true);
-            }
-            else if (aktualniDeskovka.getOblibenost() == 2){
+            } else if (aktualniDeskovka.getOblibenost() == 2) {
                 oblibenost2.setSelected(true);
-            }
-            else if (aktualniDeskovka.getOblibenost() == 3){
+            } else if (aktualniDeskovka.getOblibenost() == 3) {
                 oblibenost3.setSelected(true);
             }
         }
     }
+
+
